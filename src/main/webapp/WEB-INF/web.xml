@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         metadata-complete="true">
+
+    <display-name>
+        City:Cult Webservice vDev
+    </display-name>
+    <description>
+        City:Cult Webservice vDev
+    </description>
+
+    <servlet>
+         <servlet-name>cc_webservice</servlet-name>
+         <servlet-class>com.sun.jersey.server.impl.container.servlet.ServletAdaptor</servlet-class>
+
+        <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>org.citycult.backend.ws.CityCultApp</param-value>
+        </init-param>
+
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>cc_webservice</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+<!--
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Trusted City:Cult Clients</web-resource-name>
+
+            <url-pattern>/*</url-pattern>
+            -<!-
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            ->-
+        </web-resource-collection>
+
+        <auth-constraint>
+            <role-name>app-user</role-name>
+        </auth-constraint>
+
+        <user-data-constraint>
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Untrusted City:Cult Partner Clients</web-resource-name>
+            <url-pattern>/partner/*</url-pattern>
+        </web-resource-collection>
+
+        <auth-constraint>
+            <role-name>app-user</role-name>
+            <role-name>partner-role</role-name>
+        </auth-constraint>
+
+        <user-data-constraint>
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <login-config>
+        <auth-method>BASIC</auth-method>
+    </login-config>
+-->
+</web-app>
